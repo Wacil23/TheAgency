@@ -118,21 +118,25 @@ h1:nth-child(6) {
 
 @keyframes boy {
     0% {
-        left: -50%;
+        margin-left: -29%;
         opacity: 0.8;
     }
     100% {
-        left: 2%;
+        margin-left: 2%;
         opacity: 1;
     }
 }
 @keyframes girl {
     0% {
-        margin-left: 90%;
+        margin-left: 108%;
         opacity: 0.8;
     }
     100% {
         margin-left: 72%;
         opacity: 1;
     }
+}
+
+.co {
+  scroll-snap-type: y mandatory;
 }
