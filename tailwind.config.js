@@ -5,6 +5,11 @@ module.exports = {
     extend: {
       fontFamily: {
         gazpacho: ["Gazpacho", "sans-serif"],
+        gazpachoLight: ["gazpachoLight", "sans-serif"],
+        gingerRegular: ['gingerRegular'],
+        gingerThin: ['gingerThin'],
+        gingerBold: ['gingerBold']
+        
       },
     },
   },
