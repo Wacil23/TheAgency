@@ -7,6 +7,9 @@ import { useEffect, useRef } from 'react';
 import gsap from "gsap";
 import { BsChevronDoubleDown } from 'react-icons/bs'
 import ScrollTrigger from "gsap/ScrollTrigger";
+import {motion} from 'framer-motion'
+import Marketing from '../assets/img/Marketing/PNG without shadows/Objects/Coding (angle).png'
+
 
 const Home = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,21 +20,20 @@ const Home = () => {
   useEffect(() => {
     const cont = container.current
     const h1 = h1Ref.current
-
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: h1,
-        start: 'top top',
-        end: 'center center',
-        scrub: 1,
-      }
-    })
-
-    tl.to(h1, {
-      opacity: '0'
-    })
-
-    return () => ScrollTrigger.killAll()
+    const ctx = gsap.context(() => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: h1,
+          start: 'top top',
+          end: 'center center',
+          scrub: 1,
+        }
+      })
+      tl.to(h1, {
+        opacity: '0'
+      })
+    }, h1Ref)
+    return () => ctx.revert()
   }, [])
 
   const sceneEl = useRef(null);
@@ -43,7 +45,7 @@ const Home = () => {
   }, [])
 
   return (
-    <>
+    <motion.div >
 
       <div className='bg-gradient-to-t from-[rgba(138,71,255,1)] to-[rgba(107,25,249,1)]' ref={container}>
         <div className="content flex justify-center content-center items-center">
@@ -59,9 +61,9 @@ const Home = () => {
               <img className='w-[50%] absolute girl' data-depth='0.2' src={JumpGirl} alt="" />
             </div>
             <div className='mt-[29%] flex justify-center'>
-            <div className=''>
+              <div className=''>
                 <span className='synopsys font-gazpachoLight underline decoration-[#ffca2b] text-lg text-white'>" L'agence n°1 des moyennes et petites entreprises "</span>
-            </div>
+              </div>
               <span className='absolute flex items-center text-white bottom-0 mb-10 mx-auto animate-pulse'>Scroll down <BsChevronDoubleDown className='ml-2' /></span>
             </div>
           </div>
@@ -74,7 +76,18 @@ const Home = () => {
           <span className='text-center mx-[29%] text-lg font-gingerThin text-yellow-300 '>Nous repondons à vos demande avec un accompagnement sur mesure en s'adaptant à tout vos besoins en toutes circonstances.</span>
         </div>
       </div>
-    </>
+      <div className='w-full h-screen bg-[#8a47ff]'>
+        <h2>Nos Services</h2>
+        <div className="cards flex justify-center">
+          <div className='w-96 h-96 bg-white rounded-xl shadow-xl'>
+            <div className='w-32 h-20 bg-[#8a47ff] mx-auto rounded-b-3xl'>
+              <img src={Marketing} alt="" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </motion.div>
   )
 }
 
