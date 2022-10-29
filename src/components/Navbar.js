@@ -31,7 +31,6 @@ const Navbar = () => {
         scrollTrigger: {
           trigger: cont,
           start: 'top top',
-          markers: true,
           end: '+=20',
           snap: 1,
           toggleActions: 'restart none reverse reverse',
@@ -54,14 +53,15 @@ const Navbar = () => {
       <div className=' h-20 flex justify-around items-center' >
         <span className='text-[#ffca2b] font-bold uppercase'>
           <span className='font-thin'>The</span> Agency</span>
-        <ul className='flex text-white uppercase text-sm'  >
-          <li className='ml-8 link'><Link to='/'>Accueil</Link></li>
+        <ul className='flex text-white uppercase text-sm mx-[15%]'  >
+          <li className='ml-8 link font-gingerBold'><Link to='/'>Accueil</Link></li>
           <li className='ml-8 link2'><Link>Digital Marketing</Link> </li>
-          <li className='ml-8 link4'><Link to='/mission'>Notre missions</Link></li>
-          <li className='ml-8 link6'><Link>prix</Link></li>
-          <li className='ml-8 link5'><Link>FAQ</Link></li>
+          <li className='ml-8 link4'><Link>site web</Link></li>
+          <li className='ml-8 link5'><Link to='/mission'>Notre missions</Link></li>
+          <li className='ml-8 link6'><Link>FAQ</Link></li>
         </ul>
-        <ul>
+        <ul className='flex items-center text-sm'>
+          <li className='text-white link7 uppercase mr-5' ref={link6}>J'ai un projet</li>
           <li className='text-white link7 uppercase' ref={link6}>Contact</li>
           <div ref={icons} style={{ transform: 'translate(20px, -65px)' }} onClick={() => { window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }) }}>
             <div className='absolute -top-16 w-[75%]' ref={ScrollTop}></div>

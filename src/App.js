@@ -7,9 +7,12 @@ const App = () => {
 
   const [showNav, setShowNav] = useState(true)
 
+
   const location = (data) => {
-    if(!data){
+    if (data.includes('/mon-projet')) {
       setShowNav(false)
+    } else {
+      setShowNav(true)
     }
   }
 

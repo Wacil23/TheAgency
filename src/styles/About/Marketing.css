@@ -1,0 +1,26 @@
+span.marketing {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+  transition: 0.1s;
+}
+
+.diagonal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #461f89;
+  transform: skew(0deg, 0deg) translateX(50%);
+}
+.diagonal2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #461f89;
+  transform: skew(0deg, 0deg) translateX(-50%);
+}

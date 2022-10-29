@@ -1,0 +1,25 @@
+.custom-shape-divider-top-1666711746 svg {
+  transform: rotateX(0deg) scaleX(-1);
+}
+
+.services {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  opacity: 0.7;
+}
+
+.custom-shape-divider-top-1666705716 {
+  position: absolute;
+  top: -34%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1666705716 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 140px;
+  transform: rotateX(180deg);
+}

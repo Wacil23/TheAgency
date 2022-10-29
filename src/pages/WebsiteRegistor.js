@@ -1,11 +1,50 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import both from '../assets/img/myProjectPage/web-ui-design.png'
+import website from '../assets/img/myProjectPage/female-web-designer-working-on-landing-page-design.png'
+import marketing from '../assets/img/myProjectPage/dashboard-design.png'
+
 
 const WebsiteRegistor = () => {
-  return (
-    <div className='bg-blue-700 h-screen w-full flex justify-center items-center'>
-    <Link to='/' placeholder='Retour a lacceuil'> Retour a lacceuil </Link>
+  const navigate = useNavigate();
+
+  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    return () => ScrollTrigger.refresh()
+  }, [])
+
+  return (<>
+    <div className='bg-blue-700 h-screen w-full flex flex-col'>
+      <span className='text-5xl text-white uppercase font-gazpacho text-center my-20'>pour mon projet je souhaite :</span>
+      <div className='flex justify-around w-full mt-11 items-center'>
+
+        <div className='flex flex-col items-center hover:scale-110 duration-300 imgBox cursor-pointer' onClick={() => navigate('./siteweb')}>
+          <span className='uppercase font-gingerBold text-white mb-5 text-xl'>Site web</span>
+          <div id='box' className='h-80 w-80 shadow-2xl rounded-full bg-[#2a66e3]'>
+            <img src={website} alt="" className='w-[80%] my-[33px] mx-auto img' />
+          </div>
+        </div>
+
+        <div className='flex flex-col items-center hover:scale-110 duration-300 imgBox cursor-pointer' onClick={() => navigate('./marketing')}>
+          <span className='uppercase font-gingerBold text-white mb-5 text-xl'>Marketing Digital</span>
+          <div id='box' className='h-80 w-80 rounded-full shadow-2xl bg-[#2a66e3]'>
+            <img src={marketing} alt="" className='w-[80%] my-[33px] mx-auto img' />
+          </div>
+        </div>
+
+        <div className='flex flex-col items-center hover:scale-110 duration-300 imgBox cursor-pointer' onClick={() => navigate('./site-marketing')} >
+          <span className='uppercase font-gingerBold text-white mb-5 text-xl'>Les deux</span>
+          <div id='box' className='h-80 w-80 rounded-full shadow-2xl bg-[#2a66e3] '>
+            <img src={both} alt="" className='w-[80%] my-[33px] mx-auto img' />
+          </div>
+        </div>
+
+      </div>
+      <Link to='/' className=' text-center w-full mt-20 text-white text-lg'> Retour a l'acceuil </Link>
     </div>
+  </>
   )
 }
 

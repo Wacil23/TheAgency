@@ -4,17 +4,18 @@ import Home from '../pages/Home'
 import Mission from '../pages/Mission'
 import { AnimatePresence } from 'framer-motion'
 import WebsiteRegistor from '../pages/WebsiteRegistor'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import Website from '../pages/Project/Website'
 
 const AnimatedRoutes = (props) => {
     const location = useLocation();
+    gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
-        if(location.pathname === '/mon-projet'){
-            props.func(false)
-        }else {
-            props.func(true)
-        }
+        props.func(location.pathname)
     }, [location.pathname, props])
+
 
     return (
         <AnimatePresence>
@@ -22,6 +23,7 @@ const AnimatedRoutes = (props) => {
                 <Route path='/' element={<Home />} />
                 <Route path='/mission' element={<Mission />} />
                 <Route path='/mon-projet' element={<WebsiteRegistor />} />
+                <Route path='/mon-projet/siteweb' element={<Website />} />
             </Routes>
         </AnimatePresence>
     )
