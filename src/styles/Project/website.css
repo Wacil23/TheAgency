@@ -1,0 +1,16 @@
+.boxGender {
+   box-shadow: 4px 6px 2px #051032;
+   border-radius: 5px;
+   transition: .2s ease-in-out;
+   margin: 0px 60px;
+   cursor: pointer;
+}
+
+.boxActive {
+    box-shadow: 2px 2px 2px #051032 ;
+    border: 2px solid white;
+}
+
+.boxGender:hover {
+    box-shadow: 2px 2px 2px #051032 ;
+}

@@ -52,7 +52,7 @@ const Header = () => {
     }, [])
 
     return (
-        <div className='bg-gradient-to-t from-[rgba(138,71,255,1)] to-[rgba(107,25,249,1)]' >
+        <div className='bg-gradient-to-t from-[#8a47ff] to-[#6b19f9]' >
             <div className="content flex justify-center content-center items-center">
                 <div className="fafa flex justify-center items-center content-center w-full h-[90vh] mt-[5%]" ref={container}>
                     <h1 className={`text-9xl font-gazpacho text-center  absolute text-[#F5B800] uppercase`} data-depth='0.05'>the agency.</h1>

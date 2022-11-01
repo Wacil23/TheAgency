@@ -12,8 +12,19 @@ const AnimatedRoutes = (props) => {
     const location = useLocation();
     gsap.registerPlugin(ScrollTrigger);
 
+    const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
+
     useEffect(() => {
         props.func(location.pathname)
+
     }, [location.pathname, props])
 
 
