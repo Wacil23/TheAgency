@@ -11,7 +11,7 @@ const OurPropositions = () => {
             <span className='text-center text-[#ffca2b] uppercase text-2xl mb-24 mt-10 font-bold'>ce que nous proposons</span>
             <div className='flex justify-around mx-24'>
                 <div>
-                    <span className='text-[19px] text-white font-gingerBold capitalize'>Marketing</span>
+                    <span className='text-[19px] text-white font-mabryBold capitalize'>Marketing</span>
                     <ul className='mt-6'>
                         <li>Audio</li>
                         <li>Influenceurs</li>
@@ -21,7 +21,7 @@ const OurPropositions = () => {
                     </ul>
                 </div>
                 <div>
-                    <span className='text-[19px] text-white font-gingerBold capitalize'>Design</span>
+                    <span className='text-[19px] text-white font-mabryBold capitalize'>Design</span>
                     <ul className='mt-6'>
                         <li>Logo</li>
                         <li>Maquette Web</li>
@@ -30,7 +30,7 @@ const OurPropositions = () => {
                     </ul>
                 </div>
                 <div>
-                    <span className='text-[19px] text-white font-gingerBold capitalize'>Développement</span>
+                    <span className='text-[19px] text-white font-mabryBold capitalize'>Développement</span>
                     <ul className='mt-6'>
                         <li>Base De Données</li>
                         <li>Framework</li>

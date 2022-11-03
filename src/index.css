@@ -19,6 +19,28 @@
   src: url("../src/assets/fonts/Ginger/gingerBold.otf");
 }
 
+
+@font-face {
+  font-family: "mabryRegular";
+  src: url("../src/assets/fonts/Mabry/mabry-regular-pro.ttf");
+}
+@font-face {
+  font-family: "mabryMedium";
+  src: url("../src/assets/fonts/Mabry/Mabry-Pro-Medium.ttf");
+}
+@font-face {
+  font-family: "mabryLight";
+  src: url("../src/assets/fonts/Mabry/MabryPro-Light.ttf");
+}
+@font-face {
+  font-family: "mabryBlack";
+  src: url("../src/assets/fonts/Mabry/Mabry-Pro-Black.ttf");
+}
+@font-face {
+  font-family: "mabryBold";
+  src: url("../src/assets/fonts/Mabry/MabryPro-Bold.ttf");
+}
+
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
@@ -30,7 +52,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  font-family: "gingerRegular", sans-serif;
+  font-family: "mabryRegular", sans-serif;
 }
 
 code {

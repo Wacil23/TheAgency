@@ -8,7 +8,14 @@ module.exports = {
         gazpachoLight: ["gazpachoLight", "sans-serif"],
         gingerRegular: ['gingerRegular'],
         gingerThin: ['gingerThin'],
-        gingerBold: ['gingerBold']
+        gingerBold: ['gingerBold'],
+        mabryRegular: ['mabryRegular'],
+        mabryMedium: ['mabryMedium'],
+        mabryLight: ['mabryLight'],
+        mabryBlack: ['mabryBlack'],
+        mabryBold: ['mabryBold'],
+
+
         
       },
     },
