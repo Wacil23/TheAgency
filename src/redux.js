@@ -1,4 +1,3 @@
-import { useForm } from "@mantine/form";
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 
@@ -51,7 +50,6 @@ const checkChoicesSlice = createSlice({
 export const store = configureStore({
     reducer: {
         stepper: stepperActive.reducer,
-        checkChoice: checkChoicesSlice.reducer
-
+        checkChoice: checkChoicesSlice.reducer,
     }
 })
