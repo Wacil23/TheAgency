@@ -3,13 +3,12 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import StepOne from './StepOne'
 import StepTwo from './StepTwo'
-import { Button } from '@mantine/core'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const FormProject = () => {
 
     const current = useSelector((state) => state.stepper)
-    const dispatch = useDispatch()
 
     return (
         <>
@@ -28,7 +27,7 @@ const FormProject = () => {
                     <h1>
                         Votre devis est en route
                     </h1>
-                    <Button onClick={() => {dispatch({ type: 'stepper/prevStep' })}} variant="default">Back</Button>
+                    <Link to='/'>Retour au menu</Link>
                 </>
             }
 

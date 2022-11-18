@@ -54,15 +54,15 @@ const Navbar = () => {
         <span className='text-[#ffca2b] font-bold uppercase'>
           <span className='font-thin'>The</span> Agency</span>
         <ul className='flex text-white capitalize text-base mx-[15%]'  >
-          <li className='ml-8 link font-gingerBold'><Link to='/'>Accueil</Link></li>
+          <li className='ml-8 link font-mabryBlack'><Link to='/'>Accueil</Link></li>
           <li className='ml-8 link2'><Link>Digital Marketing</Link> </li>
           <li className='ml-8 link4'><Link>site web</Link></li>
           <li className='ml-8 link5'><Link to='/mission'>Notre missions</Link></li>
           <li className='ml-8 link6'><Link>FAQ</Link></li>
         </ul>
-        <ul className='flex items-center text-sm'>
-          <li className='text-white link7 uppercase mr-5' ref={link6}> <Link to='/mon-projet'> J'ai un projet</Link></li>
-          <li className='text-white link7 uppercase' ref={link6}>Contact</li>
+        <ul className='flex items-center text-base'>
+          <li className='text-white link7 mr-5' ref={link6}> <Link to='/mon-projet'> J'ai un projet</Link></li>
+          <li className='text-white link7' ref={link6}>Contact</li>
           <div ref={icons} style={{ transform: 'translate(20px, -65px)' }} onClick={() => { window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }) }}>
             <div className='absolute -top-16 w-[75%]' ref={ScrollTop}></div>
           </div>

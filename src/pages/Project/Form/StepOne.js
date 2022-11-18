@@ -8,18 +8,16 @@ import { useForm } from "react-hook-form";
 
 
 const StepOne = () => {
-    const inputClassName = 'w-[78%] border-[#001760b0] border-2 mr-10 inputForm bg-transparent p-2 outline-none'
-    const labelClassName = 'text-lg mb-2'
-
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [formInfo, setFormInfo] = useState([])
-    const [formYouAre, setFormYouAre] = useState([])
-    const [error, setError] = useState()
-
-    const dispatch = useDispatch()
-
-
+    const dispatch = useDispatch();
+    const inputClassName = 'w-[78%] border-[#001760b0] border-2 mr-10 inputForm bg-transparent p-2 outline-none';
+    const labelClassName = 'text-lg mb-2';
+    const [error, setError] = useState();
     const [isActive, setIsActive] = useState();
+    const [youAre, setYouAre] = useState();
+
+
+
     const genderType = [
         {
             id: 1,
@@ -37,20 +35,17 @@ const StepOne = () => {
     };
 
     useEffect(() => {
-        console.log(formInfo)
-    }, [formInfo, error])
 
-
-    const handleClick = () => {
-        // dispatch({type: 'stepper/nextStep'})
-    }
+    }, [error, errors, isActive])
 
     const onSubmit = (data) => {
-        if (formYouAre.length === 0) {
-            setError('Un choix est requis')
+        if (isActive !== undefined) {
+            dispatch({ type: 'formInfo/setFormInfo', payload: { ...data, youAre } })
+            dispatch({ type: 'stepper/nextStep' })
         } else {
-            setFormInfo({ ...data, formYouAre })
+            setError('Un choix est requis')
         }
+
     };
 
     return (
@@ -62,7 +57,7 @@ const StepOne = () => {
                         {genderType.map((val, index,) => {
                             return (
                                 <div>
-                                    <div key={index} onClick={() => { onClick(val.id); setFormYouAre(val.type) }} className={`w-32 h-32 border-2 border-[#001760b0] items-center flex flex-col justify-end  boxGender ${val.id === isActive ? 'boxActive' : ''} `} >
+                                    <div key={index} onClick={() => { onClick(val.id); setYouAre(val.type) }} className={`w-32 h-32 border-2 border-[#001760b0] items-center flex flex-col justify-end  boxGender ${val.id === isActive ? 'boxActive' : ''} `} >
                                         <img src={val.img} alt="" />
                                         <span className='text-lg capitalize'>{val.type}</span>
                                     </div>
@@ -75,7 +70,7 @@ const StepOne = () => {
                 </div>
                 <div className='flex w-full mb-10'>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Nom :' htmlFor='lastName' inputClassName={inputClassName} placeholder='Ex: Doe' labelClassName={labelClassName} type="text" />
+                        <Form register={register} label='Nom :'  htmlFor='lastName' inputClassName={inputClassName} placeholder='Ex: Doe' labelClassName={labelClassName} type="text" />
                         {errors.lastName && errors.lastName.type === "required" && <span className='text-red-400 pt-2'>Le nom est requis</span>}
                     </div>
                     <div className='w-full flex flex-col'>
@@ -106,8 +101,7 @@ const StepOne = () => {
                     </div>
                 </div>
                 <Group position="center" mt="xl">
-                    <Button onClick={() => dispatch({ type: 'stepper/prevStep' })} variant="default">Back</Button>
-                    <Button onClick={handleClick} type='submit'>Next step</Button>
+                    <Button type='submit' className='font-mabryLight hover:bg-[#ffa31c] bg-[#001760b0]'>Next step</Button>
                 </Group>
             </form>
         </>
