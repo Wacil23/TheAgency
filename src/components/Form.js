@@ -4,13 +4,14 @@ import '../styles/Project/form.css'
 import { Radio } from '@mantine/core';
 
 
-const Form = ({ htmlFor, labelClassName, inputClassName, placeholder, type = '', label = '', mask = "", labelRadio1, labelRadio2, orientation = 'horizontal', func, register }) => {
+const Form = ({ htmlFor, labelClassName, inputClassName, placeholder, type = '', label = '', mask = "", labelRadio1, labelRadio2, orientation = 'horizontal', func, register, required }) => {
 
     const [htmlTel, setHtmlTel] = useState(false)
     const [htmlSelectType, setHtmlSelectType] = useState(false)
     const [htmlSelectBudget, setHtmlSelectBudget] = useState(false)
     const [htmlCheck, setHtmlCheck] = useState(false)
     const [htmlEmail, setHtmlEmail] = useState(false)
+    const [htmlMessage, setHtmlMessage] = useState(false)
 
     const emailPattern = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/g;
     const phonePattern = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/g
@@ -31,6 +32,9 @@ const Form = ({ htmlFor, labelClassName, inputClassName, placeholder, type = '',
         if (htmlFor === 'email') {
             setHtmlEmail(true)
         }
+        if (htmlFor === 'message') {
+            setHtmlMessage(true)
+        }
     }, [htmlFor, type])
 
 
@@ -39,10 +43,10 @@ const Form = ({ htmlFor, labelClassName, inputClassName, placeholder, type = '',
             <label htmlFor={htmlFor} className={labelClassName}>{label}</label>
 
             {htmlTel &&
-                <ReactInputMask {...register(htmlFor, { required: true, pattern: phonePattern })} placeholder={placeholder} className={inputClassName} mask={mask} type={type} />
+                <ReactInputMask {...register(htmlFor, { required: required, pattern: phonePattern })} placeholder={placeholder} className={inputClassName} mask={mask} type={type} />
             }
             {htmlSelectType &&
-                <select {...register(htmlFor, { required: true })} className={inputClassName}>
+                <select {...register(htmlFor, { required: required })} className={inputClassName}>
                     <option className='bg-transparent text-white' value="">--Choisir une option--</option>
                     <option className='bg-transparent text-white' value="vitrine">Site vitrine</option>
                     <option className='bg-transparent text-white' value="ecommerce">Site E-commerce</option>
@@ -50,7 +54,7 @@ const Form = ({ htmlFor, labelClassName, inputClassName, placeholder, type = '',
                 </select>
             }
             {htmlSelectBudget &&
-                <select {...register(htmlFor, { required: true })} className={inputClassName}>
+                <select {...register(htmlFor, { required: required })} className={inputClassName}>
                     <option className='bg-transparent text-white' value="">--Choisir une option--</option>
                     <option className='bg-transparent text-white' value="0-5000">0€ - 5'000€</option>
                     <option className='bg-transparent text-white' value="5000-10000">5'000€ - 10'000€</option>
@@ -60,15 +64,16 @@ const Form = ({ htmlFor, labelClassName, inputClassName, placeholder, type = '',
             {htmlCheck &&
                 <>
                     <Radio.Group orientation={orientation}>
-                        <Radio onClick={func} value={labelRadio1} color='orange' label={labelRadio1} {...register(htmlFor, { required: true })} />
-                        <Radio onClick={func} value={labelRadio2} color="orange" label={labelRadio2} {...register(htmlFor, { required: true })} />
+                        <Radio onClick={func} value={labelRadio1} color='orange' label={labelRadio1} {...register(htmlFor, { required: required })} />
+                        <Radio onClick={func} value={labelRadio2} color="orange" label={labelRadio2} {...register(htmlFor, { required: required })} />
                     </Radio.Group>
                 </>
             }
-            {!htmlTel && !htmlSelectBudget && !htmlSelectType && !htmlCheck && !htmlEmail &&
-                <input placeholder={placeholder} {...register(htmlFor, { required: true })} className={inputClassName} type={type} />
+            {!htmlTel && !htmlSelectBudget && !htmlSelectType && !htmlCheck && !htmlEmail && !htmlMessage &&
+                <input placeholder={placeholder} {...register(htmlFor, { required: required })} className={inputClassName} type={type} />
             }
-            {htmlEmail && <input placeholder={placeholder} {...register(htmlFor, { required: true, pattern: emailPattern })} className={inputClassName} type={type} />}
+            {htmlEmail && <input placeholder={placeholder} {...register(htmlFor, { required: required, pattern: emailPattern })} className={inputClassName} type={type} />}
+            {htmlMessage && <textarea placeholder={placeholder} {...register(htmlFor, { required: required })} className={inputClassName} type={type} />}
         </>
     )
 }

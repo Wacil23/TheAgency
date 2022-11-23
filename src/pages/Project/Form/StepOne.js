@@ -16,7 +16,12 @@ const StepOne = () => {
     const [isActive, setIsActive] = useState();
     const [youAre, setYouAre] = useState();
 
-
+    const handleAlert = () => {
+        const message = window.confirm('Êtes vous sur de vouloir retourner au menu ? Vos modification seront perdues')
+        if (message) {
+            window.location.href = '/'
+        }
+    }
 
     const genderType = [
         {
@@ -70,38 +75,40 @@ const StepOne = () => {
                 </div>
                 <div className='flex w-full mb-10'>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Nom :'  htmlFor='lastName' inputClassName={inputClassName} placeholder='Ex: Doe' labelClassName={labelClassName} type="text" />
+                        <Form register={register} label='Nom :' htmlFor='lastName' inputClassName={inputClassName} placeholder='Doe' labelClassName={labelClassName} type="text" required={true} />
                         {errors.lastName && errors.lastName.type === "required" && <span className='text-red-400 pt-2'>Le nom est requis</span>}
                     </div>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Prénom :' htmlFor='firstName' inputClassName={inputClassName} placeholder='Ex: John' labelClassName={labelClassName} type="text" />
+                        <Form register={register} label='Prénom :' htmlFor='firstName' inputClassName={inputClassName} placeholder='John' labelClassName={labelClassName} type="text" required={true} />
                         {errors.firstName && errors.firstName.type === "required" && <span className='text-red-400 pt-2'>Le prénom est requis</span>}
                     </div>
                 </div>
                 <div className='flex w-full mb-10'>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Email :' htmlFor='email' inputClassName={inputClassName} placeholder='Ex: johndoe@email.com' labelClassName={labelClassName} />
+                        <Form register={register} label='Email :' htmlFor='email' inputClassName={inputClassName} placeholder='johndoe@email.com' labelClassName={labelClassName} required={true} />
                         {errors.email && errors.email.type === "required" && <span className='text-red-400 pt-2'>L'email est requis</span>}
                         {errors.email && errors.email.type === "pattern" && <span className='text-red-400 pt-2'>L'email est n'est pas bon</span>}
                     </div>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Téléphone :' mask="+33 9 99-99-99-99" htmlFor='tel' inputClassName={inputClassName} placeholder='Ex: +33 6 01-02-03-04' labelClassName={labelClassName} type="tel" />
+                        <Form register={register} label='Téléphone :' mask="+33 9 99-99-99-99" htmlFor='tel' inputClassName={inputClassName} placeholder='+33 6 01-02-03-04' labelClassName={labelClassName} type="tel" required={true} />
                         {errors.tel && errors.tel.type === "required" && <span className='text-red-400 pt-2'>Un numéro de téléphone est requis</span>}
                         {errors.tel && errors.tel.type === "pattern" && <span className='text-red-400 pt-2'>Le numero de téléphone est incorrect</span>}
                     </div>
                 </div>
                 <div className='flex w-full mb-10'>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Adresse :' htmlFor='adress' inputClassName={inputClassName} placeholder='Ex: 12 rue de la liberté' labelClassName={labelClassName} type="text" />
+                        <Form register={register} label='Adresse :' htmlFor='adress' inputClassName={inputClassName} placeholder='12 rue de la liberté' labelClassName={labelClassName} type="text" required={true} />
                         {errors.adress && errors.adress.type === "required" && <span className='text-red-400 pt-2'>Une adresse est attendue</span>}
                     </div>
                     <div className='w-full flex flex-col'>
-                        <Form register={register} label='Ville :' htmlFor='ville' inputClassName={inputClassName} placeholder='Ex: Paris' labelClassName={labelClassName} type="text" />
+                        <Form register={register} label='Ville :' htmlFor='ville' inputClassName={inputClassName} placeholder='Paris' labelClassName={labelClassName} type="text" required={true} />
                         {errors.ville && errors.ville.type === "required" && <span className='text-red-400 pt-2'>La ville est requise</span>}
                     </div>
                 </div>
                 <Group position="center" mt="xl">
-                    <Button type='submit' className='font-mabryLight hover:bg-[#ffa31c] bg-[#001760b0]'>Next step</Button>
+                    <Button onClick={handleAlert} className='font-mabryLight border-2 hover:bg-transparent hover:border-[#ffa31c] border-[#001760b0]'>Retour au menu</Button>
+                    <Button type='submit' className='font-mabryLight hover:bg-[#ffa31c] bg-[#001760b0]'>Suivant</Button>
+
                 </Group>
             </form>
         </>

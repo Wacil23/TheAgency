@@ -42,6 +42,10 @@ const Header = () => {
         return () => ctx.revert()
     }, [])
 
+    useEffect(() => {
+        return () => { ScrollTrigger.refresh() }
+      }, [])
+
 
     const sceneEl = useRef(null);
 

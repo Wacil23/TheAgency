@@ -1,14 +1,24 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import mailSent from '../../../assets/img/approved-mail.png'
 import { motion } from 'framer-motion'
 import StepOne from './StepOne'
 import StepTwo from './StepTwo'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 const FormProject = () => {
+    const [counter, setCounter] = useState(3)
 
     const current = useSelector((state) => state.stepper)
+
+    useEffect(() => {
+        if (current === 2) {
+            const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+            if (counter === 0) {
+                window.location.href = '/'
+            }
+            return () => clearInterval(timer);
+        }
+    }, [counter, current]);
 
     return (
         <>
@@ -23,12 +33,10 @@ const FormProject = () => {
                 </motion.div>
             }
             {current === 2 &&
-                <>
-                    <h1>
-                        Votre devis est en route
-                    </h1>
-                    <Link to='/'>Retour au menu</Link>
-                </>
+                <div className='flex flex-col w-full'>
+                    <p className='w-fit text-center mt-16 self-center'>PARFAIT ! Votre devis est en route. <br /> Vous allez être redirigé dans {counter} secondes</p>
+                    <img className='w-[25vw] self-center' src={mailSent} alt="" />
+                </div>
             }
 
         </>

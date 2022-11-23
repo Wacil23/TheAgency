@@ -9,9 +9,12 @@ const App = () => {
 
 
   const location = (data) => {
-    if (data.includes('/mon-projet')) {
+    if (data.includes('/mon-projet')){
       setShowNav(false)
-    } else {
+    }if (data.includes('/contact')){
+      setShowNav(false)
+    }
+    else {
       setShowNav(true)
     }
   }

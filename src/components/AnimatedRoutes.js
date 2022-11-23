@@ -7,6 +7,10 @@ import WebsiteRegistor from '../pages/WebsiteRegistor'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import Website from '../pages/Project/Website'
+import DigitalMarketing from '../pages/DigitalMarketing'
+import SiteWeb from '../pages/SiteWeb'
+import FAQ from '../pages/FAQ'
+import Contact from '../pages/Contact'
 
 const AnimatedRoutes = (props) => {
     const location = useLocation();
@@ -32,7 +36,11 @@ const AnimatedRoutes = (props) => {
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>
                 <Route path='/' element={<Home />} />
+                <Route path='/site-web' element={<SiteWeb />} />
+                <Route path='/marketing-digital' element={<DigitalMarketing />} />
                 <Route path='/mission' element={<Mission />} />
+                <Route path='/faq' element={<FAQ />} />
+                <Route path='/contact' element={<Contact />} />
                 <Route path='/mon-projet' element={<WebsiteRegistor />} />
                 <Route path='/mon-projet/siteweb' element={<Website />} />
             </Routes>
