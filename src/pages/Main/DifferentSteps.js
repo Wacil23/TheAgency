@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 import '../../styles/Main/DifferentStep.css'
 
+import { Canvas } from '@react-three/fiber'
+import EmbededStepp from './EmbededStepp'
+import { Html } from '@react-three/drei'
+
 const DifferentSteps = () => {
     const boxes = useRef(null)
+
 
     useLayoutEffect(() => {
         const box = boxes.current
@@ -44,9 +49,9 @@ const DifferentSteps = () => {
             <span className='text-center text-[#ffca2b] uppercase text-2xl mb-24 mt-10 font-mabryBold'>les différentes étapes :</span>
             <div ref={boxes} className="flex justify-around mx-32 mt-12 ">
                 <div className='box1 flex flex-col items-center'>
-                    <div className='w-28 h-28 bg-[#6e38cd] rounded-full relative step'>
-                        <span className='text-white  absolute top-[50%] font-mabryLight -translate-x-[50%] -translate-y-[50%] text-6xl left-[50%]'>1</span>
-                    </div>
+                    <Canvas shadows flat linear>
+                            <EmbededStepp />
+                    </Canvas>
                     <span className='mt-8 text-[#ffca2b] font-bold text-xl'>Choisissez votre formule :</span>
                     <span className='w-96 text-white text-center text-base mt-5'>Choisissez la formule qui coresspond le mieux à votre besoins parmis nos différents services qui sont mis à votre disposition</span>
                 </div>

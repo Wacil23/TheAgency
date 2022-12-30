@@ -30,13 +30,13 @@ const Header = () => {
             gsap.timeline({
                 scrollTrigger: {
                     trigger: cont,
-                    start: '1px 1px',
+                    start: '25px top',
                     end: '+=20',
                     snap: 1,
                     toggleActions: 'restart none reverse reverse',
                 },
             })
-                .to(cont, { opacity: '0' })
+                .to(cont, { opacity: '0'})
         }, container)
 
         return () => ctx.revert()

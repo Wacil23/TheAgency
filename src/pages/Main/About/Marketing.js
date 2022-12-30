@@ -29,9 +29,6 @@ const Marketing = () => {
                     toggleActions: 'restart none none reverse',
                 }
             })
-            tl.from(rule2, { cssRule: { translateX: 0, }, })
-            tl.to('.marketing', { opacity: 1, translateX: '50px', duration: 0.2 })
-            tl.from('.description', { opacity: 0, translateX: '-50px', duration: 0.2 })
             tl.to('.decouvrir', { opacity: 1, duration: 0.2 })
             tl.from('.social', { opacity: 0, scale: 0.5, duration: 0.5 })
             tl.from('.facebook', { opacity: 0, scale: 0.5, duration: 0.5 })

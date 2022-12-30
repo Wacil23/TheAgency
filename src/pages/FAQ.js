@@ -13,7 +13,7 @@ const FAQ = () => {
     return (
         <div className='bg-gradient-to-t from-[#4ae171] to-[#4ae171] w-full h-screen'>
             <div className='content flex-col flex justify-center content-center items-center w-full h-full'>
-                <h1 className={`text-[19rem] text-[#1250ff] font-mabryBlack text-center uppercase`} >FAQ</h1>
+                <h1 className={`text-[21rem] text-[#1250ff] font-mabryBlack text-center uppercase`} >FAQ</h1>
                 <div ref={sceneEl} className='fixed w-full left-[40%]'>
                     <img className='absolute left-[40%] w-[36%] ' src={missionAvatar} alt="" data-depth='0.05' />
                 </div>

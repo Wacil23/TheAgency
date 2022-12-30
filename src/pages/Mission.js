@@ -35,7 +35,7 @@ const Mission = () => {
       gsap.timeline({
         scrollTrigger: {
           trigger: cont,
-          start: '1px 1px',
+          start: '50px top',
           end: '+=20',
           snap: 1,
           toggleActions: 'restart none reverse reverse',
@@ -59,7 +59,7 @@ const Mission = () => {
           <img className='absolute left-[40%] w-[36%] ' src={missionAvatar} alt="" data-depth='0.05' />
         </div>
         <div className='flex justify-center'>
-          <span className={`absolute bottom-[10%] font-mabryLight underline decoration-${color} text-2xl text-white`}>" Notre mission ? Accomplir la votre "</span>
+          <span className={`absolute bottom-[10%] font-mabryLight text-2xl text-white`}>" Notre mission ? Accomplir la votre "</span>
           <span className='absolute flex items-center text-white bottom-0 mb-10 mx-auto animate-pulse'>Scroll down <BsChevronDoubleDown className='ml-2' /></span>
         </div>
       </div>

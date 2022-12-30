@@ -1,35 +1,80 @@
-import Parallax from 'parallax-js';
-import React, { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom';
-import missionAvatar from '../assets/img/with shadow/Casual/he_leaning_on_wall.png'
+import React, { useRef } from 'react'
+import { useState, useEffect } from 'react'
+import useSpline from '@splinetool/r3f-spline'
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 
-const Contact = () => {
-    const sceneEl = useRef(null);
+const Contact = ({ ...props }) => {
+
+    const phone = useRef()
+    const [hovered, setHovered] = useState(false)
     useEffect(() => {
-        const parallaxInstance = new Parallax(sceneEl.current)
-        parallaxInstance.enable();
-        return () => parallaxInstance.disable();
-    }, [])
-    return (
-        <div className='bg-gradient-to-t from-[#e4b329] to-[#e4b329] w-full h-screen'>
-            <div className='content flex-col flex justify-center content-center items-center w-full h-full'>
-                <h1 className={`text-[2rem] text-[#54b564] font-mabryBlack text-center uppercase absolute left-4 bottom-11`} >Contact</h1>
-                <h1 className={`text-[10rem] text-[#54b564] font-mabryBlack text-center uppercase absolute left-11 bottom-4`} >Contact</h1>
-                <h1 className={`text-[7rem] text-[#54b564] font-mabryBlack text-center uppercase absolute left-12 top-7`} >Contact</h1>
-                <h1 className={`text-[4rem] text-[#54b564] font-mabryBlack text-center uppercase absolute`} >Contact</h1>
-                <h1 className={`text-[9rem] text-[#54b564] font-mabryBlack text-center uppercase absolute`} >Contact</h1>
-                <h1 className={`text-[1rem] text-[#54b564] font-mabryBlack text-center uppercase absolute`} >Contact</h1>
-                <div ref={sceneEl} className='fixed w-full left-[4%]'>
-                    <img className='absolute w-[36%] ' src={missionAvatar} alt="" data-depth='0.01' />
-                </div>
-                <div className='w-[60rem] h-[40rem] bg-[#bdbdbd76] backdrop-blur-xl rounded-lg relative'>
+        document.body.style.cursor = hovered ? 'pointer' : 'auto'
+    }, [hovered])
+    const { nodes, materials } = useSpline('https://prod.spline.design/heKOX9oT7ogQTX96/scene.splinecode')
 
-                </div>
-                <div className='flex'>
-                    <Link to='/' className='mt-5'>Retour au menu</Link>
-                </div>
-            </div>
-        </div>
+    return (
+        <>
+        <OrbitControls enabled />
+        <color attach="background" args={["#5e6063"]} />
+      <group {...props} dispose={null}>
+        <pointLight
+          name="Point Light"
+          castShadow
+          intensity={1}
+          distance={2000}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={100}
+          shadow-camera-far={100000}
+          position={[340.73, 24.6, 244.04]}
+        />
+        <mesh
+          name="Text"
+          geometry={nodes.Text.geometry}
+          material={materials["Text Material"]}
+          castShadow
+          receiveShadow
+          position={[9.83, -61.85, 28.67]}
+          rotation={[-0.01, -0.07, 0]}
+        />
+        <mesh
+          name="Ellipse"
+          geometry={nodes.Ellipse.geometry}
+          material={materials["Ellipse Material"]}
+          castShadow
+          receiveShadow
+          position={[32.1, -14, 0]}
+        />
+        <directionalLight
+          name="Directional Light"
+          castShadow
+          intensity={0.7}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-near={-10000}
+          shadow-camera-far={100000}
+          shadow-camera-left={-500}
+          shadow-camera-right={500}
+          shadow-camera-top={500}
+          shadow-camera-bottom={-500}
+          position={[262.24, -91.81, 300]}
+        />
+        <PerspectiveCamera
+          name="1"
+          makeDefault={true}
+          far={100000}
+          near={5}
+          fov={45}
+          position={[44.46, -24.54, 994.16]}
+          rotation={[0.04, 0.1, 0]}
+        />
+        <hemisphereLight
+          name="Default Ambient Light"
+          intensity={0.75}
+          color="#eaeaea"
+        />
+      </group>
+        </>
     )
 }
 

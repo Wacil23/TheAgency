@@ -74,21 +74,21 @@ const StepTwo = () => {
                 <>
                     {resp[0].responseRadio1 === 'Oui' && resp[1].responseRadio2 === 'Un nouveau site web' &&
                         <div className='flex w-full mb-10'>
-                            <div className='w-full flex flex-col'>
+                            <div className='w-1/2 flex flex-col'>
                                 <Form register={register} label="Adresse de l'ancien site web (si existant)" htmlFor='adressWebsite' inputClassName={inputClassName} placeholder='Ex: https://monsiteweb.com' labelClassName={labelClassName} required={false} />
                             </div>
                         </div>
                     }
                     {resp[0].responseRadio1 === 'Oui' && resp[1].responseRadio2 === 'Le rénover' &&
                         <div className='flex w-full mb-10'>
-                            <div className='w-full flex flex-col'>
+                            <div className='w-1/2 flex flex-col'>
                                 <Form register={register} label="Adresse du site web" htmlFor='adressWebsite' inputClassName={inputClassName} placeholder='Ex: https://monsiteweb.com' labelClassName={labelClassName} required={true} />
                             </div>
                         </div>
                     }
                     <div className='flex w-full mb-10'>
                         <div className='w-full flex flex-col'>
-                            <Form register={register} label='Le type de site souhaité :' htmlFor='selectionTypeWebsite' inputClassName={inputClassName} labelClassName={labelClassName} type='selection' required={true} />
+                            <Form register={register} label={` ${resp[1].responseRadio2 === 'Le rénover' ? 'Type de votre site' : 'Type de site souhaité :'}`} htmlFor='selectionTypeWebsite' inputClassName={inputClassName} labelClassName={labelClassName} type='selection' required={true} />
                             {errors.selectionTypeWebsite && errors.selectionTypeWebsite.type === "required" && <span className='text-red-400 pt-2'>Veuillez séléctionez le type de site voulu</span>}
                         </div>
                         <div className='w-full flex flex-col'>
@@ -97,7 +97,7 @@ const StepTwo = () => {
                         </div>
                     </div>
                     <div className='flex w-full mb-10'>
-                        <div className='w-full flex flex-col'>
+                        <div className='w-1/2 flex flex-col'>
                             <Form register={register} label='Logo ?' htmlFor='checkLogo' func={(e) => dispatch({ type: 'checkChoice/handleClickLogo', payload: e.target.value })} inputClassName={inputClassName} labelClassName={labelClassName} labelRadio1="J'en possède déjà un" labelRadio2="J'aimerai que vous vous en occupiez" required={true} />
                             {errors.checkLogo && errors.checkLogo.type === "required" && <span className='text-red-400 pt-2'>Veuillez séléctionez un choix</span>}
                             {resp[2].responseRadioLogo === "J'en possède déjà un" &&

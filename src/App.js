@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 import AnimatedRoutes from './components/AnimatedRoutes';
 import Navbar from './components/Navbar';
 
@@ -11,7 +11,7 @@ const App = () => {
   const location = (data) => {
     if (data.includes('/mon-projet')){
       setShowNav(false)
-    }if (data.includes('/contact')){
+    }else if (data.includes('/contact')){
       setShowNav(false)
     }
     else {
@@ -25,7 +25,7 @@ const App = () => {
     <>
       <BrowserRouter>
         {showNav ? <Navbar /> : <></>}
-        <AnimatedRoutes func={location} />
+        <AnimatedRoutes func={location}/>
       </BrowserRouter>
     </>
   );
