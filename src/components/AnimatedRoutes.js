@@ -8,9 +8,7 @@ import Website from '../pages/Project/Website'
 import DigitalMarketing from '../pages/DigitalMarketing'
 import SiteWeb from '../pages/SiteWeb'
 import FAQ from '../pages/FAQ'
-import Contact from '../pages/Contact'
-import { gsap, Power4 } from 'gsap'
-import { Canvas } from '@react-three/fiber'
+import { gsap } from 'gsap'
 
 const AnimatedRoutes = (props) => {
   const location = useLocation();
@@ -40,7 +38,6 @@ const AnimatedRoutes = (props) => {
         <Route path='/marketing-digital' element={<DigitalMarketing />} />
         <Route path='/mission' element={<Mission />} />
         <Route path='/faq' element={<FAQ />} />
-        <Route path='/contact' element={<Canvas style={{position: 'absolute'}} shadows flat linear camera={{fov: 45,near: 0.1,far: 200,position: [0, 0, 9]}}> <Contact /> </Canvas>} />
         <Route path='/mon-projet' element={<WebsiteRegistor />} />
         <Route path='/mon-projet/siteweb' element={<Website />} />
       </Routes>

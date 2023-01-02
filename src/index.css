@@ -60,6 +60,32 @@ code {
     monospace;
 }
 
+.htmlScreen {
+  transition: opacity 0.5s cubic-bezier(0.61, 1, 0.88, 1);
+  opacity: 1;
+  position: relative;
+  display: grid;
+  grid-template:
+    'label .'
+    'tag expl';
+  align-items: end;
+  line-height: 1em;
+  gap: 1em;
+  overflow: hidden;
+  pointer-events: none;
+  height: 12.5vw;
+}
+
+.htmlScreen iframe {
+  width: 1024px;
+  height: 670px;
+  overflow: hidden;
+}
+
+.htmlScreen.show {
+  opacity: 1;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
