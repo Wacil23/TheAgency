@@ -49,7 +49,7 @@ const SiteWeb = () => {
                     </div>
                 </div>
                 <div className='w-full h-screen bg-gradient-to-t from-[#ea5d5d] to-[#ff5352]'>
-                    <Canvas flat shadows >
+                    <Canvas dpr={[1, 2]} flat shadows >
                         <ScrollControls pages={5}>
                             <Laptop />
                         </ScrollControls>

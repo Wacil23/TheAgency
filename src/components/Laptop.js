@@ -32,15 +32,15 @@ const Laptop = (props) => {
         const r2 = scroll.range(2 / 4, 2 / 4)
         const r3 = scroll.visible(4 / 5, 1 / 5)
         mac.current.rotation.x = Math.PI - (Math.PI / 2) * rsqw(r1) + r2 / 12
-        group.current.scale.x = group.current.scale.y  = group.current.scale.z = THREE.MathUtils.damp(group.current.scale.z, 1 + 4 * (0.1 + rsqw(r2)), 4, delta);
+        group.current.scale.x = group.current.scale.y = group.current.scale.z = THREE.MathUtils.damp(group.current.scale.z, 1 + 4 * (0.1 + rsqw(r2)), 4, delta);
         group.current.position.y = THREE.MathUtils.damp(group.current.position.y, 1 - 0.09 * (11 + rsqw(r1)), 4, delta);
         group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, 2 - 0.3 * (6.5 + rsqw(r2)), 4, delta)
-        site.current.classList.toggle("show", r2)
+        site.current.classList.toggle("show", r3)
     })
 
     return (
 
-        <>
+        <group>
             <Environment preset='city' />
             <PresentationControls
                 polar={[-0.2, 0.03]}
@@ -49,7 +49,7 @@ const Laptop = (props) => {
             >
 
                 <group ref={group} {...props} dispose={null}>
-                    <group position={[0, -height / 12 , 0,]} scale={width / 180} >
+                    <group position={[0, -height / 12, 0,]} scale={width / 180} >
 
 
                         <mesh geometry={nodes.Circle001.geometry} material={nodes.Circle001.material} />
@@ -74,7 +74,7 @@ const Laptop = (props) => {
                             <mesh geometry={nodes.Circle_1.geometry} material={materials.Key} />
                             <mesh geometry={nodes.Circle_2.geometry} material={materials.Touchbar} />
                         </group>
-                        <group ref={mac} position={[0.01, -0.47, -10.41,]} scale={[5.8, 7 ,5.71 ]} >
+                        <group ref={mac} position={[0.01, -0.47, -10.41,]} scale={[5.8, 7, 5.71]} >
                             <mesh geometry={nodes.Circle002.geometry} material={nodes.Circle002.material} />
                             <mesh geometry={nodes.Circle002_1.geometry} material={materials.Screen} />
                             <mesh geometry={nodes.Circle002_2.geometry} material={materials.ScreenGlass} />
@@ -93,12 +93,12 @@ const Laptop = (props) => {
 
                     </group>
                 </group>
-                    <Html ref={site} center  transform >
-                       rtreter
-                    </Html>
+                <Html ref={site} center >
+                    <h1>serhqjskdhkj</h1>
+                </Html>
             </PresentationControls>
             <ContactShadows position-y={-height / 4} opacity={0.4} blur={2.4} scale={9} />
-        </>
+        </group>
     )
 }
 
